@@ -258,6 +258,21 @@ display:none;
 </script>
   </head>
   <body>
+  <%
+  	String flag = (String)request.getAttribute("flag");
+  	if(flag != null && !flag.equals("")){
+  		%>
+  		<script>
+  			if(<%=flag%> == '3'){
+  				alert("需求申请成功,我们将会尽快联系您!");
+  			}
+  		</script>
+  		
+  		<%
+  		
+  		request.removeAttribute("flag");
+  	}
+  %>
   <div id="wrapper">
   	   <div class="met-index-news"  id="joinus">
   	   			<div style="position:absolute;top:10px;right:15px;font-weight:600;font-size:18px;cursor:pointer;" onclick="close1()" >X</div>

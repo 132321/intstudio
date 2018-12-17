@@ -1,7 +1,10 @@
 package com.hzyc.intstudio.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +25,10 @@ public class ApplicationController {
 	 * 联系我们
 	 * @author BIN
 	 * @param application
+	 * @throws IOException 
 	 */
 	@RequestMapping("/application")
-	public ModelAndView application(Application application,HttpServletRequest request) {
+	public ModelAndView application(Application application,HttpServletRequest request,HttpServletResponse res) throws IOException {
 		ModelAndView modelAndView = new ModelAndView();
 		if (request.getSession(false) == null) {
 			modelAndView.addObject("flag", "2");
@@ -33,12 +37,14 @@ public class ApplicationController {
 			Users users = (Users)request.getSession().getAttribute("users");
 			application.setUsersid(users.getId());
 			boolean flag = appService.saveApplication(application);
-			String jsp = "redirect:eucms.jsp";
+			String jsp = "homePage";
 			if (!flag) {
 				modelAndView.addObject("users", users);
 				jsp = "callMe.jsp";
 			} else {
+				
 				modelAndView.addObject("username", users.getUsername());
+				modelAndView.addObject("flag", "3");
 			}
 			modelAndView.setViewName(jsp);
 		}

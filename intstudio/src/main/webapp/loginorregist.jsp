@@ -37,10 +37,28 @@
 	 }
 	 
 	 
+	 function isPoneAvailable(str) {
+         var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+         if (!myreg.test(str)) {
+             return false;
+         } else {
+             return true;
+         }
+	}
+	 
+	 
 	 function validTel(input){
 		 var tel = input.value;
 		 if(tel.trim() == ''){
 			 return ;
+		 }
+		 tel = tel.trim();
+		 if(isPoneAvailable(tel)){
+			 
+		 }else{
+			 alert("手机号不合法！请重新输入!");
+			 input.value = "";
+	    	 return;
 		 }
 		//创建异步对象  
 		 var xhr = new XMLHttpRequest();
