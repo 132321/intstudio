@@ -62,7 +62,7 @@ font-family:;
 		height: 230px;
 	}
 	#h-style {
-		height: 620px!important;
+		height: 693px!important;
 	}
 	#pinglun{
 		width:93%!important;
@@ -468,7 +468,7 @@ display:none;
                 	
                 	
                 		  <li class="list-group-item news-li clearfix" style=""> 
-                        <span style="display:block;width:100%;margin-bottom:10px;">2018-05-29 10:30:21 </span>
+                        <span style="display:block;width:100%;margin-bottom:10px;"><%=com.getTimes() %> </span>
                         <span> 用户 <%=com.getUsername() %> : </span>
                         
                          <a href="#xinwendongtai/38.html" title="" target="_self"> 

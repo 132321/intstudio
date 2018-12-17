@@ -42,3 +42,5 @@ mybatis:
  #mapper-locations:classpath:mybatis/**/mapper/*.xml
 pagehelper:
  helperDialect: mysql
+server:
+  port: 80
